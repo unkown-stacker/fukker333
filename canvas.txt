@@ -1,0 +1,35 @@
+from IPython.display import HTML, display
+from ipywidgets import widgets
+
+html = """
+<canvas id="drawingCanvas" width="400" height="400" style="border:1px solid #000;"></canvas>
+<button id="clearButton">Clear</button>
+<script>
+var canvas = document.getElementById("drawingCanvas");
+var context = canvas.getContext("2d");
+var drawing = false;
+
+canvas.addEventListener("mousedown", function(e) {
+  drawing = true;
+  context.beginPath();
+  context.moveTo(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top);
+});
+
+canvas.addEventListener("mousemove", function(e) {
+  if (drawing) {
+    context.lineTo(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top);
+    context.stroke();
+  }
+});
+
+canvas.addEventListener("mouseup", function() {
+  drawing = false;
+});
+
+document.getElementById("clearButton").addEventListener("click", function() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+});
+</script>
+"""
+
+display(HTML(html))
