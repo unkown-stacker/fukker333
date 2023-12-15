@@ -1,0 +1,22 @@
+**insert 10 documents in Employee collection
+***copy and paste 10 times 
+*** chnage eno,salary,ename
+
+
+{
+  
+ 
+  "eno": 1,
+  "ename": "John Doe",
+  "salary": 50000,
+  "desig": "Software Engineer",
+  "dept": {
+    "deptno": 101,
+    "deptname": "Engineering",
+    "location": "XYZ City"
+  },
+  "project": {
+    "pname": "Project ABC",
+    "hrs": 40
+  }
+}
