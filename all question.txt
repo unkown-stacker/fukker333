@@ -1,0 +1,57 @@
+Q3. Display all the documents from Employee collection
+
+db.employee.find();
+
+Q4. Display all employees whose name starts with “S”
+
+db.employess.find({ename:/^s/}):
+
+Q5) Display all Employee with the designation „Manager‟
+ db.employess.find({desig:'Manger'});
+
+
+Q6). Display all employees with salary >50000 and salary <80000
+
+db.employee.find({
+salary: {
+$gt: 50000, 
+$lt: 80000
+}
+})
+Q7)Update no. of hrs to 7 for pname=_____
+db.employee.updateOne(
+{pname:"xyz"},
+{$set:{project:{hrs:7}}}
+)
+
+8)Add bonus Rs. 5000 for all employees with salary >50000 and salary 
+<150000
+db.employee.updateMany(
+{
+salary:{
+	$gt:5000,
+	$lt:15000}
+},
+{
+$inc:{
+salary:5000}
+}
+}
+
+Q9. Increase salary by 20% of employees working in deptname=________
+db.emplyoee..udateMany(
+{deptname:"it
+},
+{
+{
+$set:
+{
+salary:
+{
+$multiply:["$salary",1.2]}
+}
+}
+})
+
+Q10. Remove all employees working on pname=________
+db.employee.deleteMany({pname:"gfgfg"})
